@@ -1,59 +1,41 @@
-import java.util.Scanner;
-public class composite 
-{
- public static void main(String[] args)
+import java.util.*;
+class Main{ 
+public static void main(String args[])
+{ 
+try{
+ int i,j,m=0,flag=0,prime=0,composite=0,n,count; 
+ Scanner s= new Scanner(System.in);
+System.out.println("enter how many numbers");
+ count=s.nextInt();
+System.out.println("enter numbers:");
+ for(j=0;j<count;j++)
  {
-  try
- {
-    int p_count = 0, c_count = 0;
-        float[] arr;
-          int size;
-             Scanner s = new Scanner(System.in);
-      System.out.print("Enter the number: ");
-
- size = s.nextInt();
- arr = new float[size];
-         System.out.println("Enter the number: ");
-       for (int i = 0; i < size; i++)
-           arr[i] = s.nextFloat();
- for (int j = 0; j < size; j++) 
-{
- int count = 0;
- if (arr[j] > 0) 
-{
- for (int k = 1; k <= arr[j]; k++) 
-{
- if (arr[j] % k == 0)
- count++;
- }
-    if (count > 2)
-        c_count++;
- else
- p_count++;
- }
- else if(arr[j]<0) {
- for (float k =arr[j]; k<=-1; k++) 
-{
- if (arr[j] % k == 0)
- count++;
- }
- if (count > 2)
-{
- c_count++;
+ n=s.nextInt();
+ m=n/2; 
+ if(n==0||n==1){ 
+ prime=prime+1 ; 
  }
  else
-{
- p_count++;
+ { 
+ for(i=2;i<=m;i++)
+ { 
+ if(n%i==0){ 
+ composite=composite+1 ; 
+ flag=1; 
+ break; 
+ } 
+ } 
+ if(flag==0)
+ { 
+ prime=prime+1; 
+ } 
  }
- }
- }
- System.out.println("No. of composite num: " + c_count);
- System.out.println("No. of Prime num: " + p_count);
- s.close();
- }
- catch(Exception e)
- {
-     System.out.println("Enter only positive numbers");
- }
- }
+}
+System.out.println("number of prime:"+prime);
+System.out.println("number of prime:"+composite);
+}
+catch(Exception e){
+System.out.println("Invalid input");
+}
+}
 }
